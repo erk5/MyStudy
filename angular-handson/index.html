@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input.ng-invalid.ng-dirty {
+            border-color: #ff0000;
+        }
+    </style>
+</head>
+<body ng-app="TodoApp" ng-controller="AppController as app">
+    <h1>Sample1</h1>
+    <pre>
+    【内容】
+    テキストボックスに入力した値を表示
+    </pre>
+    <input type="text" ng-model="hoge" required>
+    {{hoge}}
+    <hr>
+
+    <h1>Sample2</h1>
+    <pre>
+    【内容】
+    ・リストの表示
+    ・テキストボックに入力した値でリストのフィルタ
+    </pre>
+    <div ng-init="
+        demoData=[
+            {name: '佐藤', age: 21},
+            {name: '山田', age: 35},
+            {name: '井上', age: 18},
+            {name: '佐川', age: 10},
+            {name: '河野', age: 51}
+        ]
+    "></div>
+    <input type="text" ng-model="word">
+    <ul>
+        <li ng-repeat="data in demoData | filter: word">{{data.name}}-{{data.age}}</li>
+    </ul>
+    <hr>
+
+    <h1>Sample3</h1>
+    <pre>
+    【内容】
+    ngComponentRouterを使用してページを表示
+    </pre>
+    <div ng-outlet></div>
+    <ul>
+        <li ng-link="['Home']">Home</li>
+        <li ng-link="['Todo']">Todo</li>
+    </ul>
+
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/ngcomponentrouter/angular_1_router.js"></script>
+
+    <script src="scripts/main.js"></script>
+    <script src="components/home/home.js"></script>
+    <script src="components/todo/todo.js"></script>
+</body>
+</html>

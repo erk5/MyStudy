@@ -1,8 +1,1 @@
-# git_test
-
-sample
-
-
-pipipigg!
-
-test
+# 勉強用リポジトリ
